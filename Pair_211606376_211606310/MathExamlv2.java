@@ -1,5 +1,7 @@
 package com.java6310;
 
+
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -44,7 +46,7 @@ public class MathExamlv2 {
                 }
             }
             else {
-                //Êı×ÖÔòÑ¹ÈëÕ»ÖĞ
+                //æ•°å­—åˆ™å‹å…¥æ ˆä¸­
                 mList.push(s);
             }
         }
@@ -76,19 +78,19 @@ public class MathExamlv2 {
                         }
                         operators.push(s);
                     }
-                    //Èç¹û¶ÁÈëµÄ²Ù×÷·ûÊÇ")"£¬Ôòµ¯³ö´ÓÕ»¶¥¿ªÊ¼µÚÒ»¸ö"("¼°ÆäÖ®Ç°µÄËùÓĞ²Ù×÷·û
+                    //å¦‚æœè¯»å…¥çš„æ“ä½œç¬¦æ˜¯")"ï¼Œåˆ™å¼¹å‡ºä»æ ˆé¡¶å¼€å§‹ç¬¬ä¸€ä¸ª"("åŠå…¶ä¹‹å‰çš„æ‰€æœ‰æ“ä½œç¬¦
                     else if (s.equals(")")) {
                         while (!operators.peek().equals("(")) {
                             String operator=operators.pop();
                             sr.append(operator).append(" ");
                             output.push(operator);
                         }
-                        //µ¯³ö"("
+                        //å¼¹å‡º"("
                         operators.pop();
                     }
                 }
             }
-            //¶ÁÈëµÄÎª·Ç²Ù×÷·û
+            //è¯»å…¥çš„ä¸ºéæ“ä½œç¬¦
             else {
                 sr.append(s).append(" ");
                 output.push(s);
@@ -106,7 +108,7 @@ public class MathExamlv2 {
         calculate();
         //Collections.reverse(output);
     }
-    //ÅĞ¶ÏÊÇ·ñ²Ù×÷·û
+    //åˆ¤æ–­æ˜¯å¦æ“ä½œç¬¦
     private static boolean isOperator(String oper){
         if (oper.equals("+")||oper.equals("-")||oper.equals("/")||oper.equals("*")
                 ||oper.equals("(")||oper.equals(")")) {
@@ -114,7 +116,7 @@ public class MathExamlv2 {
         }
         return false;
     }
-    //¼ÆËã²Ù×÷·ûµÄÓÅÏÈ¼¶
+    //è®¡ç®—æ“ä½œç¬¦çš„ä¼˜å…ˆçº§
     private static int priority(String s){
         switch (s) {
             case "+":return 1;
@@ -126,7 +128,7 @@ public class MathExamlv2 {
             default :return 0;
         }
     }
-    //½øĞĞ¼ÆËã
+    //è¿›è¡Œè®¡ç®—
     private static int cal(int N1,int N2,String operator){
         switch (operator){
             case "+":return N1+N2;
@@ -136,10 +138,10 @@ public class MathExamlv2 {
             default :return 0;
         }
     }
-    //Ò»Äê¼¶
+    //ä¸€å¹´çº§
 	private static void gradeOne(int n) throws IOException, FileNotFoundException {
-		int[] sum = new int[n + 1];// ´´½¨sumÊı×é
-		char[] signSet = { '+', '-' };// ´´½¨sianSetÊı×é
+		int[] sum = new int[n + 1];// åˆ›å»ºsumæ•°ç»„
+		char[] signSet = { '+', '-' };// åˆ›å»ºsianSetæ•°ç»„
 		Random random = new Random();
 
 		for (int i = 1; i <= n; i++) {
@@ -176,15 +178,15 @@ public class MathExamlv2 {
 			String str = br.readLine() + " " + sum[i];
 			out(str);
 			if (i == n) {
-				SimpleDateFormat df = new SimpleDateFormat("yyyyÄê-MMÔÂ-ddÈÕ HH:mm");// ÉèÖÃÈÕÆÚ¸ñÊ½
-				out("211606310 ¿ÂÎ°Ãô" + " " + df.format(new Date()));
+				SimpleDateFormat df = new SimpleDateFormat("yyyyå¹´-MMæœˆ-ddæ—¥ HH:mm");// è®¾ç½®æ—¥æœŸæ ¼å¼
+				out("211606310 æŸ¯ä¼Ÿæ•" + " " + df.format(new Date()));
 			}
 		}
 	}
-	//¶şÄê¼¶
+	//äºŒå¹´çº§
 	private static void gradeTwo(int n) throws IOException, FileNotFoundException {
-		String[] sum = new String[n + 1];// sumÈ¡Öµ
-		char[] signSet = { '*', '/' };// sianSetÈ¡Öµ
+		String[] sum = new String[n + 1];// sumå–å€¼
+		char[] signSet = { '*', '/' };// sianSetå–å€¼
 		Random random = new Random();
 
 		for (int i = 1; i <= n; i++) {
@@ -197,7 +199,7 @@ public class MathExamlv2 {
 			switch (sign) {
 			case '*':
 				sum[i] = String.valueOf(a * b);
-				sign = '¡Á';
+				sign = 'Ã—';
 				break;
 			case '/':
 				if (b == 0 && a > b) {
@@ -208,7 +210,7 @@ public class MathExamlv2 {
 				if (a % b != 0) {
 					sum[i] = sum[i] + "..." + String.valueOf(a % b);
 				}
-				sign = '¡Â';
+				sign = 'Ã·';
 				break;
 			default:
 				;
@@ -226,12 +228,12 @@ public class MathExamlv2 {
 			String str = br.readLine() + " " + sum[i];
 			out(str);
 			if (i == n) {
-				SimpleDateFormat df = new SimpleDateFormat("yyyyÄê-MMÔÂ-ddÈÕ HH:mm");// ÉèÖÃÈÕÆÚ¸ñÊ½
-				out("211606310 ¿ÂÎ°Ãô" + " " + df.format(new Date()));
+				SimpleDateFormat df = new SimpleDateFormat("yyyyå¹´-MMæœˆ-ddæ—¥ HH:mm");// è®¾ç½®æ—¥æœŸæ ¼å¼
+				out("211606310 æŸ¯ä¼Ÿæ•" + " " + df.format(new Date()));
 			}
 		} 
 	}
-	//ÈıÄê¼¶
+	//ä¸‰å¹´çº§
 	private static void gradeThree(int n) throws IOException, FileNotFoundException {
 		String[] sum = new String[n];
 		Random random = new Random();
@@ -240,7 +242,7 @@ public class MathExamlv2 {
 			int sumOfSign=random.nextInt(2)+2;
 			int flag=0;
 			if(sumOfSign>1) {
-				flag=random.nextInt(2);//ÁîÀ¨ºÅÔÚÆäËûÔËËã·û´óÓÚÒ»¸öµÄÊ±ºòÓĞ¶ş·ÖÖ®Ò»µÄ¸ÅÂÊ³öÏÖ
+				flag=random.nextInt(2);//ä»¤æ‹¬å·åœ¨å…¶ä»–è¿ç®—ç¬¦å¤§äºä¸€ä¸ªçš„æ—¶å€™æœ‰äºŒåˆ†ä¹‹ä¸€çš„æ¦‚ç‡å‡ºç°
 			}
 			int number[] = new int[4];
 			for(int j=0;j<4;j++) {
@@ -306,8 +308,8 @@ public class MathExamlv2 {
 			sum[i]=answer;
 			list.clear();
 			arr=null;
-			str=str.replace('*', '¡Á');
-			str=str.replace('/', '¡Â');
+			str=str.replace('*', 'Ã—');
+			str=str.replace('/', 'Ã·');
 			out(str);
 		}
 		out("\r\n");
@@ -317,38 +319,38 @@ public class MathExamlv2 {
 			String str = br.readLine() + "=" + " " + sum[i];
 			out(str);
 			if (i == n) {
-				SimpleDateFormat df = new SimpleDateFormat("yyyyÄê-MMÔÂ-ddÈÕ HH:mm");// ÉèÖÃÈÕÆÚ¸ñÊ½
-				out("211606310 ¿ÂÎ°Ãô" + " " + df.format(new Date()));
+				SimpleDateFormat df = new SimpleDateFormat("yyyyå¹´-MMæœˆ-ddæ—¥ HH:mm");// è®¾ç½®æ—¥æœŸæ ¼å¼
+				out("211606310 æŸ¯ä¼Ÿæ•" + " " + df.format(new Date()));
 			}
-		} // Õâ¸öforÑ­»·ÊÇÓÃÀ´È·Á¢ÒªĞ´Èëµ½out.txtÖĞµÄµÄÖµ£¬Ò²¾ÍÊÇÒª³öµÄÌâÄ¿µÄ´ğ°¸
+		} // è¿™ä¸ªforå¾ªç¯æ˜¯ç”¨æ¥ç¡®ç«‹è¦å†™å…¥åˆ°out.txtä¸­çš„çš„å€¼ï¼Œä¹Ÿå°±æ˜¯è¦å‡ºçš„é¢˜ç›®çš„ç­”æ¡ˆ
 	}
-	//ÊäÈë·½·¨
+	//è¾“å…¥æ–¹æ³•
 	private static BufferedReader in() throws FileNotFoundException {
 		File file = new File("out.txt");
-		InputStreamReader in = new InputStreamReader(new FileInputStream(file));// ½¨Á¢Ò»¸öÊäÈëÁ÷µÄ¶ÔÏó
-		BufferedReader br = new BufferedReader(in);// ½¨Á¢Ò»¸ö»º³å¶ÔÏó£¬°ÑÎÄ¼şÄÚÈİ×ª»»³É¼ÆËã»úÄÜÊ¶±ğµÄ¶ÔÏó
+		InputStreamReader in = new InputStreamReader(new FileInputStream(file));// å»ºç«‹ä¸€ä¸ªè¾“å…¥æµçš„å¯¹è±¡
+		BufferedReader br = new BufferedReader(in);// å»ºç«‹ä¸€ä¸ªç¼“å†²å¯¹è±¡ï¼ŒæŠŠæ–‡ä»¶å†…å®¹è½¬æ¢æˆè®¡ç®—æœºèƒ½è¯†åˆ«çš„å¯¹è±¡
 		return br;
 	}
-	//Êä³ö·½·¨
+	//è¾“å‡ºæ–¹æ³•
 	private static void out(String str) throws IOException {
-		File file = new File("out.txt");// ¶¨ÒåÒ»¸öÎÄ¼ş¶ÔÏó²¢ÁîÆäÖ¸ÏòÒ»¸öÎÄ¼şÎ»ÖÃ
-		file.createNewFile();// ÔÚÖ¸¶¨Î»ÖÃ´´½¨Ò»¸öÎÄ¼ş
-		BufferedWriter br = new BufferedWriter(new FileWriter(file, true));// ½¨Á¢Ò»¸ö»º³å¶ÔÏó£¬°ÑÎÄ¼şÄÚÈİ×ª»»³É¼ÆËã»úÄÜÊ¶±ğµÄ¶ÔÏó
+		File file = new File("out.txt");// å®šä¹‰ä¸€ä¸ªæ–‡ä»¶å¯¹è±¡å¹¶ä»¤å…¶æŒ‡å‘ä¸€ä¸ªæ–‡ä»¶ä½ç½®
+		file.createNewFile();// åœ¨æŒ‡å®šä½ç½®åˆ›å»ºä¸€ä¸ªæ–‡ä»¶
+		BufferedWriter br = new BufferedWriter(new FileWriter(file, true));// å»ºç«‹ä¸€ä¸ªç¼“å†²å¯¹è±¡ï¼ŒæŠŠæ–‡ä»¶å†…å®¹è½¬æ¢æˆè®¡ç®—æœºèƒ½è¯†åˆ«çš„å¯¹è±¡
 		br.write(str + "\r\n");
 		br.flush();
 		br.close();
 	}
-	//³ı´í´¦Àí
+	//é™¤é”™å¤„ç†
 	private static void wrongJudgement(String[] args, int n, int grade) throws IOException, FileNotFoundException {
 		if (args.length < 4) {
-			System.out.println("ÇëÑÏ¸ñ°´ÕÕ¸ñÊ½ÊäÈë");
+			System.out.println("è¯·ä¸¥æ ¼æŒ‰ç…§æ ¼å¼è¾“å…¥");
 			return;
 		}
 
 		switch (args[0]) {
 		case "-n": {
 			if (args[1].length() > 8) {
-				System.out.println("ÌâÄ¿ÊıÁ¿³¬³ö·¶Î§");
+				System.out.println("é¢˜ç›®æ•°é‡è¶…å‡ºèŒƒå›´");
 			}
 			n = Integer.parseInt(args[1]);
 			break;
@@ -361,14 +363,14 @@ public class MathExamlv2 {
 			break;
 		}
 		default:
-			System.out.println("ÇëÑÏ¸ñ°´ÕÕ¸ñÊ½ÊäÈë");
+			System.out.println("è¯·ä¸¥æ ¼æŒ‰ç…§æ ¼å¼è¾“å…¥");
 			break;
 		}
 
 		switch (args[2]) {
 		case "-n": {
 			if (args[1].length() > 8) {
-				System.out.println("ÌâÄ¿ÊıÁ¿³¬³ö·¶Î§");
+				System.out.println("é¢˜ç›®æ•°é‡è¶…å‡ºèŒƒå›´");
 			}
 			n = Integer.parseInt(args[3]);
 			break;
@@ -381,7 +383,7 @@ public class MathExamlv2 {
 			break;
 		}
 		default:
-			System.out.println("ÇëÑÏ¸ñ°´ÕÕ¸ñÊ½ÊäÈë");
+			System.out.println("è¯·ä¸¥æ ¼æŒ‰ç…§æ ¼å¼è¾“å…¥");
 			break;
 		}
 		if (n != -1 && grade != -1) {
@@ -397,18 +399,18 @@ public class MathExamlv2 {
 		}
 	}
 	public static String answer="";
-    //¼ÇÂ¼·ûºÅ
+    //è®°å½•ç¬¦å·
     private static LinkedList<String> operators=new LinkedList<>();
-    //Êä³ö
+    //è¾“å‡º
     private static LinkedList<String> output=new LinkedList<>();
-    //ºó×º±í´ïÊ½
+    //åç¼€è¡¨è¾¾å¼
     private static StringBuilder sr=new StringBuilder();
     
-    //ÖĞ×º±í´ïÊ½»»Îªºó×º±í´ïÊ½
+    //ä¸­ç¼€è¡¨è¾¾å¼æ¢ä¸ºåç¼€è¡¨è¾¾å¼
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		int n = -1, grade = -1;
-		// Í¨¹ıÅĞ¶ÏµÄÊı×é³¤¶ÈÀ´ÅĞ¶Ï²ÎÊıµÄ¸öÊıÊÇ·ñÊäÈë´íÎó
+		// é€šè¿‡åˆ¤æ–­çš„æ•°ç»„é•¿åº¦æ¥åˆ¤æ–­å‚æ•°çš„ä¸ªæ•°æ˜¯å¦è¾“å…¥é”™è¯¯
 		wrongJudgement(args, n, grade);
 	}
 }
